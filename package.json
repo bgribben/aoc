@@ -1,0 +1,36 @@
+{
+  "scripts": {
+    "lint": "eslint . --cache --fix",
+    "pretest": "npm run lint",
+    "format": "prettier --loglevel warn --write \"**/*.{js,css,md}\"",
+    "posttest": "npm run format",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "eslint": "^8.29.0",
+    "husky": "^8.0.2",
+    "lint-staged": "^13.0.4",
+    "prettier": "^2.8.0"
+  },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix",
+    "*.{js,css,md}": "prettier --write"
+  },
+  "eslintConfig": {
+    "extends": [
+      "eslint:recommended"
+    ],
+    "env": {
+      "es6": true,
+      "browser": true,
+      "node": true
+    },
+    "parserOptions": {
+      "ecmaVersion": 10
+    }
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "es5"
+  }
+}
