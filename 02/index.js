@@ -2,7 +2,7 @@ const fs = require('fs');
 
 const getPart1Score = (rounds) => {
   const draw = 'A XB YC Z';
-  const win = 'A YB Z C X';
+  const win = 'A YB ZC X';
   const moveValue = { X: 1, Y: 2, Z: 3 };
 
   return rounds.reduce((score, round) => {
@@ -27,10 +27,10 @@ const getPart2Score = (rounds) => {
 };
 
 const main = async () => {
+  console.time('Time');
   const input = await fs.readFileSync('./input', { encoding: 'utf-8' });
   const rounds = input.split('\n');
 
-  console.time('Time');
   const part1 = getPart1Score(rounds);
   console.log('Part 1:', part1);
   const part2 = getPart2Score(rounds);
